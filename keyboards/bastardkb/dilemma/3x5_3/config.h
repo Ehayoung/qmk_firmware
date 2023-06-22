@@ -17,9 +17,20 @@
 
 #pragma once
 
+/* Key matrix configuration. */
+#define MATRIX_ROW_PINS \
+    { GP4, GP5, GP27, GP26 }
+#define MATRIX_COL_PINS \
+    { GP8, GP9, GP7, GP6, GP28 }
+
 /* Handedness. */
 #define SPLIT_HAND_PIN GP29
 #define SPLIT_HAND_PIN_LOW_IS_LEFT // High -> right, Low -> left.
+
+/* RGB settings. */
+//#define RGB_DI_PIN GP0  // Per-key.
+#define WS2812_DI_PIN GP10
+// #define RGB_DI_PIN GP10 // Underglow.
 
 /* CRC. */
 #define CRC8_USE_TABLE
@@ -36,6 +47,14 @@
 #define I2C1_DUTY_CYCLE FAST_DUTY_CYCLE_16_9
 #define OLED_DISPLAY_HEIGHT 128
 
+#define POINTING_DEVICE_GESTURES_CURSOR_GLIDE_ENABLE
+#define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_ABSOLUTE_MODE
+#define CIRQUE_PINNACLE_TAP_ENABLE
+#define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE
+#define CIRQUE_PINNACLE_ATTENUATION EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_2X
+#define DILEMMA_MINIMUM_DEFAULT_DPI 400
+#define CIRQUE_PINNACLE_CURVED_OVERLAY
+
 /* Reset. */
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17
@@ -44,7 +63,12 @@
 /* RGB settings. */
 #define RGBLED_NUM 36
 #define RGBLED_SPLIT \
-    { 18, 18 }
+    { 18, 18 } 
+
+
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+
+#define PERMISSIVE_HOLD 
 
 /* RGB matrix support. */
 #ifdef RGB_MATRIX_ENABLE
